@@ -68,7 +68,7 @@
         "ls": "^0.2.1",
         "mime-types": "^2.1.21",
         "moment": "^2.23.0",
-        "multi-hashing": "git:https://github.com/J-A-M-P-S/jamps-ravencoin-hashing.git",
+        "multi-hashing": "git://github.com/J-A-M-P-S/jamps-ravencoin-hashing.git",
         "mysql": "^2.16.0",
         "newrelic": "^5.1.0",
         "node-crypto-api": "git+https://github.com/J-A-M-P-S/node-crypto-api.git",
