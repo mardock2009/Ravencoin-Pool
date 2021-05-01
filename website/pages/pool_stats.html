@@ -1,0 +1,310 @@
+<div class="container">
+	<div class="slim-pageheader">
+		<ol class="breadcrumb slim-breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">
+				<span>Dashboard & News</span>
+			</li>
+		</ol>
+		<h6 class="slim-pagetitle">
+			<span>Dashboard & News</span>
+		</h6>
+	</div>
+	<div class="container">
+		<p>
+			<span class="strong">01.05.2021 | New RavenPool.Ninja released !</span>
+		</p>
+	</div>
+	{{ for(var pool in it.stats.pools) { }}
+		{{ if(pool !== it.stats.coin) continue; }}
+		<div class="dash-headline">
+			<div class="dash-headline-left">
+				<div class="dash-headline-item-one">
+					<div id="currentPoolHashrate" class="dash-chartist">
+						<canvas id="poolHashrateChart"></canvas>
+					</div>
+					<div class="dash-item-overlay">
+						<h1>
+							<p class="earning-label">Pool Hashrate</p>
+							<span class="mediumText" id="poolHashRate">{{=it.stats.pools[pool].hashrateString}}</span>
+							<span class="smallText">(<span id="netPercent">{{=Number((it.stats.pools[pool].hashrate) / (it.stats.pools[pool].poolStats.networkSols)).toFixed(2)}} %)</span>
+						</h1>
+                				<a href="/getting_started" class="statement-link" id="btnWorkerStats">Getting Started<i class="fa fa-angle-right mg-l-5"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="dash-headline-right">
+				<div class="dash-headline-right-top">
+					<div class="dash-headline-item-two">
+						<div id="currentNetworkDifficulty" class="dash-chartist">
+							<canvas id="networkDifficultyChart"></canvas>
+							<a class="chart-style"></a>
+						</div>
+						<div class="dash-item-overlay">
+							<h4>
+								<span id="netdiff">{{=it.stats.pools[pool].networkDifficultyString}}</span>
+							</h4>
+							<p class="item-label">Current Network Difficulty</p>
+						</div>
+					</div>
+				</div>
+				<div class="dash-headline-right-bottom">
+					<div class="dash-headline-item-two">
+						<div id="currentPoolWorkers" class="dash-chartist">
+							<canvas id="poolWorkerChart"></canvas>
+							<a class="chart-style"></a>
+						</div>
+						<div class="dash-item-overlay">
+							<h4>
+								<span class="mediumText" id="poolMiners">{{=it.stats.pools[pool].minerCount}}</span>
+								<span class="mediumText"> Miner </span>
+								<span class="mediumText"> / </span>
+								<span class="mediumText" id="poolWorkers">{{=it.stats.pools[pool].workerCount}}</span>
+								<span class="mediumText"> Worker </span>
+							</h4>
+							<p class="item-label">Current Connected</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="slim-pageheader">
+			<ol class="breadcrumb slim-breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/">Home</a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">
+					<span>Pool Information</span>
+				</li>
+			</ol>
+			<h6 class="slim-pagetitle">
+				<span><img src="/static/icons/{{=String(it.stats.coin)}}.png" style="height: 24px" alt="Coin Logo"> {{=(String(it.stats.coin).charAt(0).toUpperCase() + String(it.stats.coin).slice(1))}} Pool Information</span>
+			</h6>
+		</div>
+		<div class="card card-dash-one mg-b-20">
+			<div class="row no-gutters">
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-hourglass-half fa-sm"></span>
+						</div>
+						<label class="tx-primary">TIME TO FIND A BLOCK</label>
+						<h4>
+							<span id="timeToFind" class="tx-white">{{=it.stats.pools[pool].timeToFind}}</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-receipt fa-sm"></span>
+						</div>
+						<label class="tx-primary">VALID SHARES</label>
+						<h4>
+							<span id="validShares" class="tx-white">{{=it.stats.pools[pool].poolStats.validShares}}</span>
+						</h4>
+				</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-stopwatch fa-sm"></span>
+						</div>
+						<label class="tx-primary">BLOCK FOUND EVERY</label>
+						<h4>
+							<span id="luckHour" class="tx-white">{{=it.stats.pools[pool].luckHours}} Hours</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-percent fa-sm"></span>
+						</div>
+						<label class="tx-primary">CURRENT EFFORT</label>
+						<h4>
+							<span id="currentEffort" class="tx-white">{{=Number(it.stats.pools[pool].currEffort * 100).toFixed(2)}} %</span>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card card-dash-one mg-b-20">
+			<div class="row no-gutters">
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-chart-bar fa-sm"></span>
+						</div>
+						<label class="tx-primary">NETWORK HASHRATE</label>
+						<h4>
+							<span id="netHash" class="tx-white">{{=it.stats.pools[pool].poolStats.networkSolsString}}</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-chart-line fa-sm"></span>
+						</div>
+						<label class="tx-primary">NETWORK DIFFICULTY</label>
+						<h4>
+							<span id="netDiff" class="tx-white">{{=it.stats.pools[pool].networkDifficultyString}}</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-cubes fa-sm"></span>
+						</div>
+						<label class="tx-primary">BLOCKCHAIN HEIGHT</label>
+						<h4>
+							<span id="netHeight" class="tx-white">{{=it.stats.pools[pool].poolStats.networkBlocks}}</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-network-wired fa-sm"></span>
+						</div>
+						<label class="tx-primary">CONNECTED PEERS</label>
+						<h4>
+							<span id="netPeers" class="tx-white">{{=it.stats.pools[pool].poolStats.networkConnections}}</span>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card card-dash-one mg-b-20">
+			<div class="row no-gutters">
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-chart-pie fa-sm"></span>
+						</div>
+						<label class="tx-primary">POOL FEE</label>
+						{{ var total = 0.0; }}
+						{{ var rewardRecipients = it.stats.pools[pool].rewardRecipients || {}; }}
+						{{ for (var r in rewardRecipients) { }}
+							{{ total += rewardRecipients[r]; }}
+						{{ } }}
+						<h4>
+							<span class="tx-white">{{=total}} %</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-hand-holding-usd fa-sm"></span>
+						</div>
+						<label class="tx-primary">MINIMUM PAYOUT</label>
+						<h4>
+							<span id="minPayment" class="tx-white">{{=it.stats.pools[pool].minimumPayment}} {{=it.stats.pools[pool].symbol}}</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-history fa-sm"></span>
+						</div>
+						<label class="tx-primary">PAYMENT INTERVAL</label>
+						<h4>
+							<span id="intPayment" class="tx-white">{{=it.stats.pools[pool].intervalPayment}}</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-coins fa-sm"></span>
+						</div>
+						<label class="tx-primary">LAST BLOCK REWARD</label>
+						<h4>
+							<span id="lastReward" class="tx-white">{{=Number(it.stats.pools[pool].poolStats.networkReward / 100000000).toFixed(4) + " " + it.stats.pools[pool].symbol}}</span>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="slim-pageheader">
+			<ol class="breadcrumb slim-breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/">Home</a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page">
+					<span>Market Information</span>
+				</li>
+			</ol>
+		<h6 class="slim-pagetitle">
+			<span><img src="/static/icons/{{=String(it.stats.coin)}}.png" style="height: 24px" alt="Coin Logo"> {{=(String(it.stats.coin).charAt(0).toUpperCase() + String(it.stats.coin).slice(1))}} Market Information</span>
+		</h6>
+		</div>
+		<div id="blockStats" class="card card-dash-one mg-b-20">
+			<div class="row no-gutters">
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+							<div class="icon icon-info">
+								<span class="fas fa-sm fa-dollar-sign"></span>
+							</div>
+							<label class="tx-primary">{{=it.stats.pools[pool].symbol}} to USD</label>
+							<h4>
+								<span id="CoinToUSD" class="tx-white">N/A</span>
+							</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fab fa-sm fa-btc"></span>
+						</div>
+						<label class="tx-primary">{{=it.stats.pools[pool].symbol}} to BTC</label>
+						<h4>
+							<span id="CoinToBTC" class="tx-white">N/A</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-sm fa-angle-double-up"></span>
+						</div>
+						<label class="tx-primary">{{=it.stats.pools[pool].symbol}} 24 Hour High</label>
+						<h4>
+							<span id="priceHigh" class="tx-white">N/A</span>
+						</h4>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="dash-content dash-small-info">
+						<div class="icon icon-info">
+							<span class="fas fa-sm fa-angle-double-down"></span>
+						</div>
+						<label class="tx-primary">{{=it.stats.pools[pool].symbol}} 24 Hour Low</label>
+						<h4>
+							<span id="priceLow" class="tx-white">N/A</span>
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{ break; }}
+	{{ } }}
+</div>
+<script>
+	var poolName = "{{=it.stats.coin}}";
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stat_tracker.js';
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/methods.js';
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/pool_stats.js';
+	$.getJSON("https://api.coingecko.com/api/v3/coins/{{=(String(it.stats.coin).charAt(0) + String(it.stats.coin).slice(1))}}", function (data) {
+		$("#CoinToUSD").html("$ " + data.market_data.current_price.usd.toFixed(4));
+		$("#CoinToBTC").html(data.market_data.current_price.btc.toFixed(8));
+		$("#priceHigh").html("$ " + data.market_data.high_24h.usd.toFixed(4));
+		$("#priceLow").html("$ " + data.market_data.low_24h.usd.toFixed(4));
+	});
+</script>

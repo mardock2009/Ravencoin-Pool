@@ -1,0 +1,71 @@
+<div class="container">
+	<div class="slim-pageheader">
+		<ol class="breadcrumb slim-breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">
+				<span>Pool Workers</span>
+			</li>
+		</ol>
+		<h6 class="slim-pagetitle">
+			<span>Pool Workers</span>
+		</h6>
+  	</div>
+	<div>&nbsp;<br></div>
+	<div class="container">
+		{{ for(var pool in it.stats.pools) { }}
+			<div class="container-fluid">
+				<div class="chartLabel">
+					<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" alt="icon" style="height: 24px;"/> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}} Workers
+				</div>
+				<div class="col-md-12 table-responsive">
+					<table id="workerTable" class="table table-bordered table-hover" style="width: 100%">
+						<thead>
+							<tr>
+								<th>Address</th>
+								<th>Share Rate</th>
+								<th>Invalid shares</th>
+								<th>Efficiency</th>
+								<th>Hashrate</th>
+							</tr>
+						</thead>
+						{{ for(var worker in it.stats.pools[pool].workers) { }}
+							{{ let workerInfo = worker.split('.'); }}
+							{{ if (workerInfo.length === 2) { }}
+								{{ let worker = workerInfo[0]; }}
+							{{ } }}
+							{{var workerstat = it.stats.pools[pool].workers[worker];}}
+							<tbody>
+								<tr>
+									<td><a href="/workers/{{=worker}}">{{=worker}}</a></td>
+									<td>{{=Math.floor(workerstat.shares)}}</td>
+									<td>{{=Math.floor(workerstat.invalidshares)}}</td>
+									<td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
+									<td>{{=workerstat.hashrateString}}</td>
+								</tr>
+							</tbody>
+						{{ } }}
+					</table>
+				</div>
+			</div><br>
+		{{ } }}
+	</div>
+</div>
+
+<script>
+var dataTable = $("#workerTable").DataTable({
+	"bFilter": false,
+	"bInfo": false,
+	"bLengthChange": false,
+	"columnDefs": [
+		{ "type": "natural", "targets": 0 },
+		{ "type": "natural", "targets": 1 },
+		{ "type": "natural", "targets": 2 },
+		{ "type": "natural", "targets": 3 },
+		{ "type": "natural", "targets": 4 }
+	],
+	"order": [[ 4, "desc" ]],
+	"pageLength": 25
+});
+</script>

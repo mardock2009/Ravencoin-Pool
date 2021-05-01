@@ -1,0 +1,64 @@
+<div class="container">
+	<div class="slim-pageheader">
+		<ol class="breadcrumb slim-breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">
+				<span>Pools Overview</span>
+			</li>
+		</ol>
+		<h6 class="slim-pagetitle">
+			<span>Pools Overview</span>
+		</h6>
+	</div>
+	<div>&nbsp;<br></div>
+	<div id="container-fluid p-4">
+		<div class="col-md-12 table-responsive">
+			<table class="table table-bordered table-striped" style="width:100%">
+				<thead>
+					<tr>
+						<th style="text-align:center;vertical-align: left;">Coin</port>
+						<th style="text-align:center;vertical-align: middle;">Ticker</th>
+						<th style="text-align:center;vertical-align: middle;">Algo</th>
+						<th style="text-align:center;vertical-align: middle;">Pool Fee</th>
+						<th style="text-align:center;vertical-align: middle;">Ports</th>
+						<th style="text-align:center;vertical-align: middle;">Pool Workers</th>
+						<th style="text-align:center;vertical-align: middle;">Pool Hash Rate</th>
+						<th style="text-align:center;vertical-align: middle;">Donations Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{ var sortedPools = it.stats.pools; }}
+					{{ for(var pool in it.stats.pools) { }}
+						<tr>
+						<th style="text-align:left;vertical-align: middle;">
+						<a class="hot_link" href="/stats/{{=it.stats.pools[pool].name}}">
+						<img src="/static/icons/{{=it.stats.pools[pool].name}}.png" alt="icon" style="height: 25px;"/> {{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}} </a>
+						</th>
+						<th style="text-align:center;vertical-align: middle;"><a href="/stats/{{=it.stats.pools[pool].name}}">{{=it.stats.pools[pool].symbol}}</a></th>
+						<td>{{=it.stats.pools[pool].algorithm}}</td>
+						{{ var total = 0.0; }}
+						{{ var rewardRecipients = it.stats.pools[pool].rewardRecipients || {}; }}
+						{{ for (var r in rewardRecipients) { }}
+							{{ total += rewardRecipients[r]; }}
+						{{ } }}
+						<td style="text-align:center;vertical-align: middle;">{{=total}} %</td>
+						<td scope="row" style="text-align:center;vertical-align: middle;">
+						{{ for(var pool2 in it.stats.pools) { }}
+							{{ if(pool2 != pool) continue; }}
+							{{=Object.keys(it.poolsConfigs[pool2].ports)}}
+							{{ break; }}
+						{{ } }}
+						</td>
+						<td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].workerCount}}</td>
+						<td style="text-align:center;vertical-align: middle;">{{=it.stats.pools[pool].hashrateString}}</td>
+						{{ var blockchange = it.stats.pools[pool].blockChange || 0; }}				
+						<td style="text-align:center;vertical-align: middle;">{{=(it.poolsConfigs[pool].donateaddress||'none')}}</td>
+						</tr>
+					{{ } }}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

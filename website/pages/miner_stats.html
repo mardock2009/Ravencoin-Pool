@@ -1,0 +1,97 @@
+<div class="container">
+	<div class="slim-pageheader">
+		<ol class="breadcrumb slim-breadcrumb">
+			<li class="breadcrumb-item"><a href="/">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page"><span>Your Stats &amp; Payment History</span></li>
+		</ol>
+		<h6 class="slim-pagetitle">
+			<span>Your Stats &amp; Payment History</span>
+		</h6>
+	</div>
+	<div class="yourStats push-up-20">
+		<div class="card mg-t-20">
+			<div class="card-header tx-medium bd-0 tx-white bg-primary-dark">
+				<i class="fa fa-dashboard"></i>&nbsp;<span>Hash Rate</span>
+			</div>
+			<div class="row card-body">
+				<div class="col-sm-6 stats push-up-10">
+					<div class="card-separate-text">
+						<i class="fas fa-tachometer-alt card-icon"></i>
+						<span class="card-label">Current Hash Rate</span>: <span id="total-hashrate-label"></span>
+					</div>
+					<div class="card-separate-text">
+						<i class="fas fa-tachometer-alt card-icon"></i>
+						<span class="card-label">Average Hash Rate</span>: <span id="statsHashrateAvg"></span>
+					</div>
+					<div class="card-separate-text">
+						<i class="fas fa-trophy card-icon"></i>
+						<span class="card-label">Hashrate Dominance</span>: <span id="statsDominance"></span> %
+					</div>
+					<div class="card-separate-text">
+						<i class="fas fa-cloud-upload-alt card-icon"></i>
+						<span class="card-label">Total Shares Submitted</span>: <span id="total-shares-label"></span>
+					</div>
+				</div>
+				<div class="col-sm-6 userChart">
+					<div class="chart">
+						<canvas id="workerHashChart"></canvas>
+						<a class="chart-style"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="yourStats push-up-20">
+		<div class="card mg-t-20">
+			<div class="card-header tx-medium bd-0 tx-white bg-primary-dark">
+				<i class="fas fa-money"></i>&nbsp;<span>Payments</span>
+			</div>
+			<div class="row card-body">
+				<div class="col-sm-6 stats push-up-10">
+					<div class="card-separate-text">
+						<i class="fas fa-money-bill-wave card-icon"></i>
+						<span class="card-label">Immature Balance</span>: <span id="total-immature-label"></span>
+					</div>
+					<div class="card-separate-text">
+						<i class="fas fa-money-bill-wave card-icon"></i>
+						<span class="card-label">Total Balance</span>: <span id="total-balance-label"></span>
+					</div>
+					<div class="card-separate-text">
+						<i class="fas fa-money-bill-wave card-icon"></i>
+						<span class="card-label">Total Paid</span>: <span id="total-paid-label"></span>
+					</div>
+					<div class="card-separate-text">
+						<i class="fa fa-star card-icon"></i>
+						<span class="card-label">Round Contribution</span>: <span id="statsShares"></span> %
+					</div>
+				</div>
+				<div class="col-sm-6 userChart">
+					<div class="chart">
+						<canvas id="chart_payments"></canvas>
+						<a class="chart-style"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="yourStats push-up-20">
+		<div class="card mg-t-20">
+			<div class="card-header tx-medium bd-0 tx-white bg-primary-dark">
+				<i class="fas fa-money"></i>&nbsp;<span>Your Workers</span>
+			</div>
+			<div class="row card-body">
+				<div class="row mt-2 mx-2">
+					<div id="boxesWorkers"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var _miner = '{{=String(it.stats.address).split(".")[0]}}';
+	addPoolToTracker(_miner);
+	var _workerCount = 0;
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/methods.js';
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/miner_stats.js';
+</script>

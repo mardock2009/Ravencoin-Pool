@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="slim-pageheader">
+		<ol class="breadcrumb slim-breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">
+				<span>Worker Stats</span>
+			</li>
+		</ol>
+		<h6 class="slim-pagetitle">
+			<span>Worker Stats</span>
+		</h6>
+	</div>
+	<div class="container">
+		<div class="intro text-light">
+			<br>
+			<h2 class="text-center" style="margin:0 0 25px;">Miners Dashboard</h2>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row col pb-0 justify-content-center">
+			<p class="lead mb-1">Look Up Address</p>
+		</div>
+		<div class="row pl-4 mb-0 justify-content-center">
+			<form id="searchForm">
+				<div class="input-group">
+				<input type="text" id="searchBar" class="form-control" placeholder="Wallet Address" aria-label="Wallet Address" aria-describedby="basic-addon2" style="min-width: 500px;">
+					<div class="input-group-append">
+						<button class="btn btn-outline-info btn-sm" id="searchButton" type="submit"><i class="fa fa-search"></i> Lookup</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div>&nbsp;<br /><br /></div>
+	<div class="container-fluid">
+		<div class="col-md-12 table-responsive">
+			<table id="walletTable" class="table table-bordered table-hover" style="width:100%">
+				<thead>
+					<tr>
+						<th class="vhmiddle tableHeaderStyle"><i class="fa fa-wallet"></i> Wallets</th>
+						<th class="vhmiddle tableHeaderStyle"><i class="fa fa-eraser"></i> Actions</th>
+					</tr>
+				</thead>
+				<tbody id="walletTableBody"></tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.querySelector('main').appendChild(document.createElement('script')).src = '/static/dashboard.js';
+</script>

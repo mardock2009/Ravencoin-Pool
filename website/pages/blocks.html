@@ -1,0 +1,178 @@
+<div class="container">
+	<div class="slim-pageheader">
+		<ol class="breadcrumb slim-breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">
+				<span>Blocks</span>
+			</li>
+		</ol>
+		<h6 class="slim-pagetitle">
+			<span>Blocks</span>
+		</h6>
+	</div>
+</div>
+<div class="row">&nbsp;<br /></div>
+<div class="container">
+	{{ var sortedPools = Object.keys(it.stats.pools); }}
+	{{ sortedPools.sort(function(a, b) { return a.workerCount - b.workerCount; }); }}
+	<center>
+		<div class="col-8 table-responsive">
+			<table class="table table-bordered" style="width: 100%">
+				<thead>
+					<tr>
+						<th class="vmiddle" style="width: 200px;"><i class="fas fa-history"></i> Blocks History For</th>
+						<th class="vmiddle">
+							<select class="form-control" id="coinSelect" style="width:100%;">
+								<option class="btn btn-primary dropdown-toggle" value="all" id="coinDropDown" data-toggle="dropdown" aria-haspopup="true">
+									All Coins
+								</option>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+									{{ for(var i = 0; i < sortedPools.length; i++) { }}
+									<option class="dropdown-item" value="{{=sortedPools[i]}}">{{=sortedPools[i].charAt(0).toUpperCase() + sortedPools[i].slice(1)}}</option>
+									{{ } }}
+								</div>            
+							</select>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="vmiddle" width="200px"><i class="fas fa-hourglass-half"></i> Pending Blocks:</th>
+						<td id="tdHistoryPending" class="vhmiddle tdHistoryPending"></td>
+					</tr>
+					<tr>
+						<th class="vmiddle" width="200px"><i class="fas fa-check"></i> Confirmed Blocks:</th>
+						<td id="tdHistoryConfirmed" class="vhmiddle tdHistoryConfirmed"></td>
+					</tr>
+					<tr>
+						<th class="vmiddle" width="200px"><i class="fas fa-hand-holding-usd"></i> Paid:</th>
+						<td id="tdHistoryPaid" class="vhmiddle tdHistoryPaid"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</center>
+</div>
+<div>&nbsp;<br><br></div>
+<center>
+	<h4 class="display-4 ml-3 mt-0 mb-3" style="font-size: 24px;"><b>Blocks Found By Pool</b></h4>
+</center>
+<div class="container">
+	<div class="container-fluid">
+		<fieldset>
+			<form action="#" class="form-group" method="post">
+				<div class="col-md-12 table-responsive">
+					<table id="blockTable" class="table table-bordered table-hover" style="width: 100%">
+						<thead>
+						<tr>
+						<th class="vhmiddle tableHeaderStyle">Coin</th>
+						<th class="vhmiddle tableHeaderStyle">Time</th>
+						<th class="vhmiddle tableHeaderStyle">Hash</th>
+						<th class="vhmiddle tableHeaderStyle">Height</th>
+						<th class="vhmiddle tableHeaderStyle">Effort</th>
+						<th class="vhmiddle tableHeaderStyle">Finder</th>
+						</tr>
+						</thead>
+						<tbody id="blockTableBody"></tbody>
+					</table>
+				</div>
+			</form>
+		</fieldset>
+	</div>
+</div>
+
+<script>
+	"{{ var totalPending = parseInt('0'); }}";
+	"{{ var totalConfirmed = parseInt('0'); }}";
+	"{{ var totalPaidOut = parseInt('0'); }}";
+
+	var dataTable = $("#blockTable").DataTable({
+		"bFilter": false,
+		"bInfo" : false,
+		"order": [[ 3, "desc" ]],
+		"columnDefs": [
+			{ "width": "80px", "targets": 0 },
+			{ "width": "120px", "targets": 1 },
+			{ "width": "100px", "targets": 2 },
+			{ "width": "50px", "targets": 3 },
+			{ "width": "50px", "targets": 4 },
+			{ "width": "100px", "targets": 5 }
+		],
+		"pageLength": 25,
+		"pagingType": "full_numbers",
+		"lengthMenu": [ 25, 50, 100, 150, 300, 500 ]
+	});
+
+	$("#coinSelect").ready(function() {
+		updateTable("all", true);
+	});
+
+	$("#coinSelect").change(function() {
+		updateTable(this.value, true);
+	});
+
+	function updateTable(value, updateText) {
+		var options = {
+			hour12: false, year: "numeric", month: "numeric",
+			day: "numeric", hour: "2-digit", minute: "2-digit"
+		};
+		"{{ var sortedPools = Object.keys(it.stats.pools); }}";
+		"{{ sortedPools.sort(function(a, b) { return a.workerCount - b.workerCount; }); }}";
+		if(updateText && (dataTable.row)) {
+			dataTable.clear().draw(true);
+		}
+		"{{ for(i in sortedPools) { }}";
+		"{{ var pool = sortedPools[i]; }}";
+		if(updateText) {
+			if (("all" !== value) && ("{{=pool}}" === value)) {
+				"{{ var tmpPaid = parseFloat('{{=it.stats.pools[pool].poolStats.totalPaid}}').toFixed(8); }}";
+				$('#tdHistoryPending').text("{{=it.stats.pools[pool].blocks.pending}}");
+				$('#tdHistoryConfirmed').text("{{=it.stats.pools[pool].blocks.confirmed}}");
+				$('#tdHistoryPaid').text("{{=tmpPaid}}");
+			} else {
+				"{{ var tmpPending = parseInt('{{=it.stats.pools[pool].blocks.pending}}'); }}";
+				"{{ var tmpConfirmed = parseInt('{{=it.stats.pools[pool].blocks.confirmed}}'); }}";
+				"{{ var tmpPaid = parseFloat('{{=it.stats.pools[pool].poolStats.totalPaid}}'); }}";
+				"{{ var totalPending = parseInt(totalPending) + parseInt(tmpPending); }}";
+				"{{ var totalConfirmed = parseInt(totalConfirmed) + parseInt(tmpConfirmed); }}";
+				"{{ var totalPaidOut = parseFloat(totalPaidOut) + parseFloat(tmpPaid); }}";
+			}
+			"{{ for(p in it.stats.pools[pool].explorer.blocks) { }}";
+			"{{ var blockex = it.stats.pools[pool].explorer.blocks[p]; }}";
+			var hashblock = ("{{=blockex.split(":")[2]}}").toString();
+			var blockheight = parseInt("{{=blockex.split(":")[1]}}");
+			var finder = ("{{=blockex.split(":")[3]}}").toString();
+			var effort = parseInt("{{=blockex.split(":")[4]}}" * 10).toFixed(1);
+			var effortClass = "";
+			if (effort < 100) {
+				effortClass = "effort1";
+			} else if (effort < 200) {
+				effortClass = "effort2";
+			} else if (effort < 500) {
+				effortClass = "effort3";
+			} else {
+				effortClass = "effort4";
+			}
+			if (("{{=pool}}" === value) || ("all" === value)) {
+				dataTable.row.add([
+					'<div class="vhmiddle"><span class="tableRowStyle text-info"><img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" /> <a href="/stats/{{=it.stats.pools[pool].name}}">{{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}}</a></span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle text-white">' + new Date(parseInt("{{=blockex.split(":")[0]}}")).toISOString().replace(/([^T]+)T([^\.]+).*/g, '$1 $2').toUpperCase() + '</span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle text-white">' + hashblock.substring(0, 6) + ' &hellip; ' + hashblock.substring(hashblock.length - 6) + '</div>',
+					'<div class="vhmiddle"><span class="tableRowStyle text-white">' + blockheight + '</div>',
+					'<div class="vhmiddle"><span class="tableRowStyle"><span class=' + effortClass + '><b>' + effort + ' %</b></span></div>',
+					'<div class="vhmiddle"><span class="tableRowStyle text-white">' + finder + '</div>',
+				]).draw(true);
+			}
+			"{{ } }}";
+		}
+		"{{ } }}";  
+		if ("all" === value) {
+			var tmpOutVar = parseFloat("{{=totalPaidOut}}").toFixed(8);
+			$('#tdHistoryPending').text("{{=totalPending}}");
+			$('#tdHistoryConfirmed').text("{{=totalConfirmed}}");
+			$('#tdHistoryPaid').text(tmpOutVar);
+		}
+	}
+</script>

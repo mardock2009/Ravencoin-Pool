@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="slim-pageheader">
+		<ol class="breadcrumb slim-breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="/">Home</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">
+				<span>Pools Stats Overview</span>
+			</li>
+		</ol>
+		<h6 class="slim-pagetitle">
+			<span>Pools Stats Overview</span>
+		</h6>
+	</div>
+	<div>&nbsp;<br></div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 chartWrapper">
+				<div class="chartLabel">Top 5 Pool Workers</div>
+				<div class="chartHolder"><canvas id="workerChart" height="100px"></canvas></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 chartWrapper">
+				<div class="chartLabel">Top 5 Pool Hashrates (MH/s)</div>
+				<div class="chartHolder"><canvas id="hashChart" height="100px"></canvas></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 chartWrapper">
+				<div class="chartLabel">Top 5 Blocks Pending Per Pool</div>
+				<div class="chartHolder"><canvas id="blockChart" height="200px"></canvas></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    document.querySelector('main').appendChild(document.createElement('script')).src = '/static/stats.js';
+</script>
