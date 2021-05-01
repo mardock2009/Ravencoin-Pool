@@ -23,7 +23,6 @@ var redis = require('redis');
 var async = require('async');
 var filterIterate = require('./filterIterate.js');
 var stats = require('./stats.js');
-delete require('http').OutgoingMessage.prototype.flush;
 const functions = require('./functions.js');
 const loggerFactory = require('./logger.js');
 const logger = loggerFactory.getLogger('Api', 'system');
