@@ -125,7 +125,7 @@ module.exports = function () {
 			}
 		});
 	};
-	setInterval(buildUpdatedWebsite, websiteConfig.stats.updateInterval * 100);
+	setInterval(buildUpdatedWebsite, websiteConfig.stats.updateInterval * 1000);
 	var getPage = function (pageId) {
 		if (pageId in pageProcessed) {
 			var requestedPage = pageProcessed[pageId];
