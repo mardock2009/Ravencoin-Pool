@@ -8,7 +8,6 @@ var PoolWorker = require('./libs/poolWorker.js');
 var PaymentProcessor = require('./libs/paymentProcessor.js');
 var Website = require('./libs/website.js');
 var algos = require('stratum-pool/lib/algoProperties.js');
-delete require('http').OutgoingMessage.prototype.flush;
 const loggerFactory = require('./libs/logger.js');
 const logger = loggerFactory.getLogger('init.js', 'system');
 JSON.minify = JSON.minify || require("node-json-minify");
