@@ -1,7 +1,30 @@
+/*
+Copyright 2021 JAMPS (jamps.pro)
+
+Authors: Olaf Wasilewski (olaf.wasilewski@gmx.de)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
 const fs = require('fs');
-var path = require('path');
 const http = require('http');
 const https = require('https');
+const loggerFactory = require('./logger.js');
+const logger = loggerFactory.getLogger('Website', 'system');
+var path = require('path');
 var async = require('async');
 var redis = require('redis');
 var watch = require('node-watch');
@@ -12,8 +35,6 @@ var compress = require('compression');
 var Stratum = require('stratum-pool');
 var util = require('stratum-pool/lib/util.js');
 var api = require('./api.js');
-const loggerFactory = require('./logger.js');
-const logger = loggerFactory.getLogger('Website', 'system');
 if (fs.existsSync('lzCode.conf')) { var lzCode = fs.readFileSync('lzCode.conf','utf8'); } else { var lzCode = ""; }
 if (fs.existsSync('matomoCode.conf')) { var matomoCode = fs.readFileSync('matomoCode.conf','utf8'); } else { var matomoCode = ""; }
 module.exports = function () {
