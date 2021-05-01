@@ -1,0 +1,97 @@
+{
+    "name": "JAMPSRavencoinPool",
+    "version": "1.0.0",
+    "description": "An extremely efficient, highly scalable, Ravencoin mining pool",
+    "keywords": [
+        "stratum",
+        "mining",
+        "pool",
+        "server",
+        "poolserver",
+        "Ravencoin",
+        "KawPoW"
+    ],
+    "homepage": "https://github.com/J-A-M-P-S/jamps-ravencoin-pool",
+    "bugs": {
+        "url": "https://github.com/J-A-M-P-S/jamps-ravencoin-pool/issues"
+    },
+    "license": "GPL-3.0",
+    "author": "JAMPS",
+    "contributors": [
+        "Dirty Harry"
+    ],
+    "main": "init.js",
+    "bin": {
+        "block-notify": "./scripts/blockNotify.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/J-A-M-P-S/jamps-ravencoin-pool.git"
+    },
+    "devDependencies": {
+        "require-so-slow": "^2.0.5"
+    },
+    "dependencies": {
+        "3.npm": "^1.0.0",
+        "asn1": "^0.2.4",
+        "async": "^2.6.3",
+        "bcrypt-pbkdf": "^1.0.2",
+        "bignum": "^0.13.1",
+        "bignumber.js": "^6.0.0",
+        "bittrex-exchange-api": "git+https://github.com/J-A-M-P-S/bittrex-exchange-api.git",
+        "bittrex-rest-client": "^2.0.4",
+        "body-parser": "^1.18.3",
+        "chai": "^4.3.4",
+        "chart.js": "^3.1.1",
+        "chartjs-plugin-annotation": "^1.0.0",
+        "chartjs-plugin-zoom": "^0.6.6",
+        "cluster": "^0.7.7",
+        "coingecko-api": "^1.0.10",
+        "color-name": "^1.1.4",
+        "colors": "^1.3.3",
+        "combined-stream": "^1.0.7",
+        "compression": "^1.7.3",
+        "dateformat": "^2.2.0",
+        "dot": "^1.1.2",
+        "ecc-jsbn": "^0.1.2",
+        "exponential-moving-average": "^1.0.0",
+        "express": "^4.16.4",
+        "extend": "^3.0.2",
+        "form-data": "^2.3.3",
+        "hashlib": "^1.0.1",
+        "heapdump": "^0.3.15",
+        "http-errors": "^1.7.1",
+        "ip-anonymize": "^0.1.0",
+        "is-json": "^2.0.1",
+        "klass": "^1.4.1",
+        "logger": "0.0.1",
+        "ls": "^0.2.1",
+        "mime-types": "^2.1.21",
+        "moment": "^2.23.0",
+        "multi-hashing": "git:https://github.com/J-A-M-P-S/jamps-ravencoin-hashing.git",
+        "mysql": "^2.16.0",
+        "newrelic": "^5.1.0",
+        "node-crypto-api": "git+https://github.com/J-A-M-P-S/node-crypto-api.git",
+        "node-json-minify": "^1.0.0",
+        "node-multi-hashing": "^0.0.1",
+        "node-watch": "^0.5.9",
+	"nomics": "git+https://github.com/J-A-M-P-S/nomics-javascript.git",
+        "nonce": "^1.0.4",
+        "redis": "^2.8.0",
+        "redis-commands": "^1.7.0",
+        "request": "^2.88.0",
+        "safe-buffer": "^5.1.2",
+        "semver": "^5.7.1",
+        "sha3": "^2.1.4",
+        "sma": "^0.1.1",
+        "sshpk": "^1.15.2",
+        "stratum-pool": "git+https://github.com/J-A-M-P-S/jamps-ravencoin-stratum.git",
+        "underscore": "^1.12.1",
+        "winston": "^3.2.1",
+        "winston-daily-rotate-file": "^3.5.1",
+        "winston-transport": "^4.3.0"
+    },
+    "engines": {
+        "node": ">=8.17.0"
+    }
+}

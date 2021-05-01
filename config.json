@@ -1,0 +1,70 @@
+{
+    "poolname": "Ravencoin Pool",
+    "devmode": false,
+    "devmodePayMinimim": 0.25,
+    "devmodePayInterval": 120,
+    "logips": true,
+    "anonymizeips": true,
+    "ipv4bits": 16,
+    "ipv6bits": 16,
+    "defaultCoin": "ravencoin",
+    "poollogo": "/website/static/img/poollogo.png",
+    "discord": "Join our #mining channel on Discord: ",
+    "discordlink": "https://discord.gg/vzcbVNW",
+    "pagetitle": "Ravencoin Pool - 0.5 % Fees Promo - Run By Professionals",
+    "pageauthor": "JAMPS",
+    "pagedesc": "A reliable, low fee, easy to use mining pool for Ravencoin! Get started mining today!",
+    "pagekeywds": "GPU,CPU,Hash,Hashrate,Cryptocurrency,Crypto,Mining,Pool,Ravencoin,Easy,Simple,How,To",
+    "btcdonations": "1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt",
+    "ltcdonations": "LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz",
+    "rvndonations": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
+    "logger" : {
+        "level" : "debug",
+        "file" : "/home/pool/jamps-ravencoin-pool/logs/ravencoin_debug.log"
+    },
+    "cliHost": "127.0.0.1",
+    "cliPort": 17117,
+    "clustering": {
+        "enabled": false,
+        "forks": "auto"
+    },
+    "defaultPoolConfigs": {
+        "blockRefreshInterval": 400,
+        "jobRebroadcastTimeout": 25,
+        "connectionTimeout": 600,
+        "emitInvalidBlockHashes": false,
+        "validateWorkerUsername": true,
+        "tcpProxyProtocol": false,
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 50,
+            "checkThreshold": 500,
+            "purgeInterval": 300
+        },
+        "redis": {
+            "host": "127.0.0.1",
+            "port": 6379
+        }
+    },
+    "website": {
+        "enabled": true,
+        "sslenabled": false,
+        "sslforced": false,
+        "host": "0.0.0.0",
+        "port": 80,
+        "sslport": 443,
+        "sslkey": "/home/pool/jamps-ravencoin-pool/certs/privkey.pem",
+        "sslcert": "/home/pool/jamps-ravencoin-pool/certs/fullchain.pem",
+        "stratumHost": "rvn.jamps.pro",
+        "stats": {
+            "updateInterval": 900,
+            "historicalRetention": 43200,
+            "hashrateWindow": 900
+        }
+    },
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379
+    }
+}
