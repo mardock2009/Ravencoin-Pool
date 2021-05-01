@@ -44,7 +44,6 @@ nvm install v8.17.0
 nvm use v8.17.0
 npm update -g
 
-npm install -g webpack@4.46.0
 npm install -g pm2@4.5.6
 npm install -g npm@latest-6
 
