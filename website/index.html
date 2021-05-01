@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- Page Description -->
+	{{ if ((it.portalConfig.pagedesc !== "undefined") & (it.portalConfig.pagedesc !== "")) { }}
+		<meta name="description" content="{{=it.portalConfig.pagedesc}}" />
+	{{ } else { }}
+		<meta name="description" content="An Ravencoin mining pool - https://ravenpool.ninja" />    
+	{{ } }}
+	<!-- Page Keywords -->
+	{{ if ((it.portalConfig.pagekeywds !== "undefined") & (it.portalConfig.pagekeywds !== "")) { }}
+		<meta name="keywords" content="{{=it.portalConfig.pagekeywds}}" />
+	{{ } else { }}
+		<meta name="keywords" content="Ravencoin, pool, mining pool, mining, cryptocurrency, crypto, ravencoin" />
+	{{ } }}
+	<!-- Page Author -->
+	{{ if ((it.portalConfig.pageauthor !== "undefined") & (it.portalConfig.pageauthor !== "")) { }}
+		<meta name="author" content="root" />
+	{{ } else { }}
+		<meta name="author" content="root" />   
+	{{ } }}
+	<!-- Page Title -->
+	{{ if ((it.portalConfig.pagetitle !== "undefined") & (it.portalConfig.pagetitle !== "")) { }}
+		<title>{{=it.portalConfig.pagetitle}}</title>
+	{{ } else { }}
+		<title>Ravencoin Mining Pool - https://ravenpool.ninja</title>
+	{{ } }}
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link rel="icon" href="/static/img/favicon.png" type="image/ico" />
+	<title>Ravencoin Pool</title>
+	<link href="/static/lib/font-awesome/css/all.min.css" rel="stylesheet">
+	<link href="/static/lib/Ionicons/css/ionicons.css" rel="stylesheet">
+	<link href="/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/lib/jquery-datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+	<link href="/static/lib/chart.js/css/Chart.min.css" rel="stylesheet">
+	<link href="/static/lib/jquery-toggles/css/toggles-full.css" rel="stylesheet">
+	<link href="/static/lib/select2/css/select2.min.css" rel="stylesheet">
+  <link href="/static/lib/normalize/css/normalize.min.css" rel="stylesheet">
+	<link href="/static/lib/pure/css/pure.min.css" rel="stylesheet">
+	<link href="/static/css/slim.css" rel="stylesheet">
+	<link href="/static/css/slim.one.css" rel="stylesheet">
+	<script src="/static/lib/font-awesome/js/all.min.js"></script>
+	<script src="/static/lib/jquery/js/jquery.min.js"></script>
+	<script src="/static/lib/js-cookie/js/js.cookie.min.js"></script>
+	<script src="/static/lib/popper.js/js/popper.min.js"></script>
+	<script src="/static/lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/lib/jquery-datatables/js/jquery.dataTables.min.js"></script>
+	<script src="/static/lib/jquery-datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="/static/lib/jquery-datatables/js/natural.js"></script>
+	<script src="/static/lib/jquery.timeago/js/jquery.timeago.js"></script>
+	<script src="/static/lib/jquery-ui/js/jquery-ui.min.js"></script>
+	<script src="/static/lib/raphael/js/raphael.js"></script>
+	<script src="/static/lib/select2/js/select2.full.min.js"></script>
+	<script src="/static/lib/moment/js/moment.min.js"></script>
+	<script src="/static/lib/chart.js/js/Chart.min.js"></script>
+	<script src="/static/lib/chart.js/js/Chart.bundle.min.js"></script>
+	<script src="/static/lib/jquery-toggles/js/toggles.min.js"></script>
+	<script src="/static/lib/justgage/js/justgage.js"></script>
+	<script src="/static/js/ResizeSensor.js"></script>
+	<script src="/static/js/slim.js"></script>
+	<script src="/static/js/main.js"></script>
+	<script src="/static/stat_tracker.js"></script>
+	{{=it.matomoCode}}
+</head>
+
+<body>
+	<div class="slim-header">
+		<div class="container">
+			<div class="slim-header-left">
+				<img src="/static/img/logo.png" width="42" height="42" alt="logo">
+				<div class="logoText">
+ 					<a href="/">
+						<img src="/static/img/slogan.png" width="320" height="32" alt="logo2">
+					</a>
+				</div>
+			</div>
+			<div class="slim-header-right">
+				<div class="logoText">
+					<a href="https://discord.gg/xmvHKBXZZg" target="_blank">
+						<img src="/static/img/discord.png" width="128" height="32" alt="discord">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="slim-navbar">
+		<div class="container">
+			<ul class="nav">
+				<li class="nav-item active">
+					<a class="nav-link hot_link" href="/">
+						<i class="icon ion-ios-home"></i>
+						<span>&nbsp;Home</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link hot_link" href="/dashboard">
+						<i class="icon ion-android-contact"></i>
+						<span>&nbsp;Worker Stats</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link hot_link" href="/blocks">
+						<i class="icon ion-cube"></i>
+						<span>&nbsp;Pool Blocks</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link hot_link" href="/payments">
+						<i class="icon ion-social-usd"></i>
+						<span>&nbsp;PAYMENTS</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link hot_link" href="/workers">
+						<i class="icon ion-android-contacts"></i>
+						<span>&nbsp;Pool Workers</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link hot_link" href="/getting_started">
+						<i class="icon ion-power"></i>
+						<span>&nbsp;Get Strated</span>
+					</a>
+				</li>
+				<li class="nav-item with-sub">
+					<a class="nav-link" href="#" data-toggle="dropdown">
+						<i class="icon ion-ios-analytics"></i>
+						<span>&nbsp;Resources</span>
+					</a>
+					<div class="sub-item">
+						<ul>
+							<li>
+								<a class="hot_link" href="https://github.com/trexminer/T-Rex/releases" target="_blank"><img src="/static/img/download.png" style="height: 16px;width: 16px;" alt="icon" />&nbsp;T-Rex</a>
+							</li>
+							<li>
+								<a class="hot_link" href="https://github.com/todxx/teamredminer/releases" target="_blank"><img src="/static/img/download.png" style="height: 16px;width: 16px;" alt="icon" />&nbsp;TeamRedMiner</a>
+							</li>
+							<li>
+								<a class="hot_link" href="/faq"><i class="fas fa-comments icon-dropdown"></i><span>FAQ</span></a>
+							</li>
+							<li>
+								<a class="hot_link" href="/learn_more"><i class="fab fa-leanpub icon-dropdown"></i><span>Learn More</span></a>
+							</li>
+							<li>
+								<a class="hot_link" href="https://discord.gg/xmvHKBXZZg" target="_blank"><i class="fab fa-discord icon-dropdown"></i><span>Discord</span></a>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="page-wrapper">
+		<div class="slim-mainpanel" id="page">
+			<main id="mainContent">{{=it.page}}</main>
+		</div>
+	</div>
+	<div class="slim-footer" id="poolFooter">
+		<div class="container">
+			<p>Copyright &copy; 2021 <a href="https://rvn.jamps.pro" target="_blank">JAMPS Ravencoin Pool</a> | Powered by <a href="https://github.com/J-A-M-P-S/jamps-ravencoin-pool" target="_blank"> JAMPS Ravencoin Pool</a></p>
+		</div>
+	</div>
+</body>
+</html>
