@@ -124,49 +124,49 @@
 			dataTable.clear().draw(true);
 		}
 		"{{ for(i in sortedPools) { }}";
-		"{{ var pool = sortedPools[i]; }}";
-		if(updateText) {
-			if (("all" !== value) && ("{{=pool}}" === value)) {
-				"{{ var tmpPaid = parseFloat('{{=it.stats.pools[pool].poolStats.totalPaid}}').toFixed(8); }}";
-				$('#tdHistoryPending').text("{{=it.stats.pools[pool].blocks.pending}}");
-				$('#tdHistoryConfirmed').text("{{=it.stats.pools[pool].blocks.confirmed}}");
-				$('#tdHistoryPaid').text("{{=tmpPaid}}");
-			} else {
-				"{{ var tmpPending = parseInt('{{=it.stats.pools[pool].blocks.pending}}'); }}";
-				"{{ var tmpConfirmed = parseInt('{{=it.stats.pools[pool].blocks.confirmed}}'); }}";
-				"{{ var tmpPaid = parseFloat('{{=it.stats.pools[pool].poolStats.totalPaid}}'); }}";
-				"{{ var totalPending = parseInt(totalPending) + parseInt(tmpPending); }}";
-				"{{ var totalConfirmed = parseInt(totalConfirmed) + parseInt(tmpConfirmed); }}";
-				"{{ var totalPaidOut = parseFloat(totalPaidOut) + parseFloat(tmpPaid); }}";
+			"{{ var pool = sortedPools[i]; }}";
+			if(updateText) {
+				if (("all" !== value) && ("{{=pool}}" === value)) {
+					"{{ var tmpPaid = parseFloat('{{=it.stats.pools[pool].poolStats.totalPaid}}').toFixed(8); }}";
+					$('#tdHistoryPending').text("{{=it.stats.pools[pool].blocks.pending}}");
+					$('#tdHistoryConfirmed').text("{{=it.stats.pools[pool].blocks.confirmed}}");
+					$('#tdHistoryPaid').text("{{=tmpPaid}}");
+				} else {
+					"{{ var tmpPending = parseInt('{{=it.stats.pools[pool].blocks.pending}}'); }}";
+					"{{ var tmpConfirmed = parseInt('{{=it.stats.pools[pool].blocks.confirmed}}'); }}";
+					"{{ var tmpPaid = parseFloat('{{=it.stats.pools[pool].poolStats.totalPaid}}'); }}";
+					"{{ var totalPending = parseInt(totalPending) + parseInt(tmpPending); }}";
+					"{{ var totalConfirmed = parseInt(totalConfirmed) + parseInt(tmpConfirmed); }}";
+					"{{ var totalPaidOut = parseFloat(totalPaidOut) + parseFloat(tmpPaid); }}";
+				}
+				"{{ for(p in it.stats.pools[pool].explorer.blocks) { }}";
+					"{{ var blockex = it.stats.pools[pool].explorer.blocks[p]; }}";
+					var hashblock = ("{{=blockex.split(":")[2]}}").toString();
+					var blockheight = parseInt("{{=blockex.split(":")[1]}}");
+					var finder = ("{{=blockex.split(":")[3]}}").toString();
+					var effort = parseInt("{{=blockex.split(":")[4]}}" * 100).toFixed(0);
+					var effortClass = "";
+					if (effort < 100) {
+						effortClass = "effort1";
+					} else if (effort < 200) {
+						effortClass = "effort2";
+					} else if (effort < 500) {
+						effortClass = "effort3";
+					} else {
+						effortClass = "effort4";
+					}
+					if (("{{=pool}}" === value) || ("all" === value)) {
+						dataTable.row.add([
+							'<div class="vhmiddle"><span class="tableRowStyle text-info"><img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" /> <a href="/stats/{{=it.stats.pools[pool].name}}">{{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}}</a></span></div>',
+							'<div class="vhmiddle"><span class="tableRowStyle text-white">' + new Date(parseInt("{{=blockex.split(":")[0]}}")).toISOString().replace(/([^T]+)T([^\.]+).*/g, '$1 $2').toUpperCase() + '</span></div>',
+							'<div class="vhmiddle"><span class="tableRowStyle text-white">' + hashblock.substring(0, 6) + ' &hellip; ' + hashblock.substring(hashblock.length - 6) + '</div>',
+							'<div class="vhmiddle"><span class="tableRowStyle text-white">' + blockheight + '</div>',
+							'<div class="vhmiddle"><span class="tableRowStyle"><span class=' + effortClass + '><b>' + effort + ' %</b></span></div>',
+							'<div class="vhmiddle"><span class="tableRowStyle text-white">' + finder + '</div>',
+						]).draw(true);
+					}
+				"{{ } }}";
 			}
-			"{{ for(p in it.stats.pools[pool].explorer.blocks) { }}";
-			"{{ var blockex = it.stats.pools[pool].explorer.blocks[p]; }}";
-			var hashblock = ("{{=blockex.split(":")[2]}}").toString();
-			var blockheight = parseInt("{{=blockex.split(":")[1]}}");
-			var finder = ("{{=blockex.split(":")[3]}}").toString();
-			var effort = parseInt("{{=blockex.split(":")[4]}}" * 10).toFixed(1);
-			var effortClass = "";
-			if (effort < 100) {
-				effortClass = "effort1";
-			} else if (effort < 200) {
-				effortClass = "effort2";
-			} else if (effort < 500) {
-				effortClass = "effort3";
-			} else {
-				effortClass = "effort4";
-			}
-			if (("{{=pool}}" === value) || ("all" === value)) {
-				dataTable.row.add([
-					'<div class="vhmiddle"><span class="tableRowStyle text-info"><img src="/static/icons/{{=it.stats.pools[pool].name}}.png" style="height: 24px;" /> <a href="/stats/{{=it.stats.pools[pool].name}}">{{=it.stats.pools[pool].name.charAt(0).toUpperCase() + it.stats.pools[pool].name.slice(1)}}</a></span></div>',
-					'<div class="vhmiddle"><span class="tableRowStyle text-white">' + new Date(parseInt("{{=blockex.split(":")[0]}}")).toISOString().replace(/([^T]+)T([^\.]+).*/g, '$1 $2').toUpperCase() + '</span></div>',
-					'<div class="vhmiddle"><span class="tableRowStyle text-white">' + hashblock.substring(0, 6) + ' &hellip; ' + hashblock.substring(hashblock.length - 6) + '</div>',
-					'<div class="vhmiddle"><span class="tableRowStyle text-white">' + blockheight + '</div>',
-					'<div class="vhmiddle"><span class="tableRowStyle"><span class=' + effortClass + '><b>' + effort + ' %</b></span></div>',
-					'<div class="vhmiddle"><span class="tableRowStyle text-white">' + finder + '</div>',
-				]).draw(true);
-			}
-			"{{ } }}";
-		}
 		"{{ } }}";  
 		if ("all" === value) {
 			var tmpOutVar = parseFloat("{{=totalPaidOut}}").toFixed(8);
