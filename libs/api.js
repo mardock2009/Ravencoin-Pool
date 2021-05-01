@@ -22,8 +22,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 var redis = require('redis');
 var async = require('async');
 var filterIterate = require('./filterIterate.js');
-const functions = require('./functions.js');
 var stats = require('./stats.js');
+delete require('http').OutgoingMessage.prototype.flush;
+const functions = require('./functions.js');
 const loggerFactory = require('./logger.js');
 const logger = loggerFactory.getLogger('Api', 'system');
 module.exports = function(portalConfig, poolConfigs) {
