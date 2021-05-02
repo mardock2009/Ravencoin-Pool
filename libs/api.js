@@ -36,7 +36,6 @@ module.exports = function(portalConfig, poolConfigs) {
 			res.header('Content-Type', 'application/json');
 			res.end(portalStats.statsString);
 			return;
-
 			case 'payments':
 			var poolBlocks = [];
 			for(var pool in portalStats.stats.pools) {
@@ -45,7 +44,6 @@ module.exports = function(portalConfig, poolConfigs) {
 			res.header('Content-Type', 'application/json');
 			res.end(JSON.stringify(poolBlocks));
 			return;
-
 			case 'worker_stats':
 			res.header('Content-Type', 'application/json');
 			if (req.url.indexOf("?") > 0) {
@@ -130,7 +128,6 @@ module.exports = function(portalConfig, poolConfigs) {
 				}));
 			}
 			return;
-
 			case 'pool_fees':
 			res.header('Content-Type', 'application/json');
 			var o = { pools : [] };
@@ -148,28 +145,24 @@ module.exports = function(portalConfig, poolConfigs) {
 			}
 			res.end(JSON.stringify(o));
 			return;
-
 			case 'pool_stats':
 			res.header('Content-Type', 'application/json');
 			res.end(JSON.stringify(portalStats.statPoolHistory));
 			return;
-
 			case 'live_stats':
 			res.writeHead(200, {
 				'Content-Type': 'text/event-stream',
 				'Cache-Control': 'no-cache',
 				'Connection': 'keep-alive'
 			});
-
 			res.write('\n');
 			var uid = Math.random().toString();
 			_this.liveStatConnections[uid] = res;
-			res.flush();
 			req.on("close", function() {
 				delete _this.liveStatConnections[uid];
 			});
-			default:
-			next();
+			return;
+			default: next();
 		}
 	};
 	Object.filter = (obj, predicate) =>
@@ -184,8 +177,7 @@ module.exports = function(portalConfig, poolConfigs) {
 				}));
 				return;
 			}
-			default:
-			next();
+			default: next();
 		}
 	};
 };
