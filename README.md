@@ -1,4 +1,4 @@
-JAMPS Ravencoin Pool - v1.0.0 Special Edition
+Cyber Pool Ravencoin Stratum - v1.0.1 Special Edition
 ================
 
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue)](https://opensource.org/licenses/GPL-3.0)
@@ -15,7 +15,7 @@ Highly Efficient mining pool for Ravencoin!
 | Project                     |
 | --------------------------  |
 | [JAMPS Ravencoin Pool]      |
-| [JAMPS Ravencoin Stratum]   |
+| [Cyber Pool RVN  Stratum]   |
 | [JAMPS Ravencoin Hashing]   |
 
 -------
