@@ -7,8 +7,7 @@ Highly Efficient mining pool for Ravencoin!
 
 -------
 ### Screenshots
-#### Home<br />
-![Home](http://ravenpool.ath.cx/)
+Not available
 
 -------
 ### Node Open Mining Portal consists of 3 main modules:
