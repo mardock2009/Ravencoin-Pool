@@ -271,18 +271,14 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
     cd ~/jamps-ravencoin-pool
     sudo bash pool-start.sh
 
-### Donates for developers JAMPS Ravencoin Pool
+### Donates for developers Ravencoin Pool
 
-BTC: 1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt
-
-LTC: LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz
-
-RVN: RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk
+RVN: RXpumHNPrvoBqHUFYN7HjWaXNqQDwxjH8P
     
 -------
 
 ## License
 ```
 Licensed under the GPL-3.0
-Copyright (c) 2021 JAMPS
+Copyright (c) 2021 mardock2009 / JAMPS
 ```
