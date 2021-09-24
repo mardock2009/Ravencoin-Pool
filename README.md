@@ -12,11 +12,11 @@ Highly Efficient mining pool for Ravencoin!
 
 -------
 ### Node Open Mining Portal consists of 3 main modules:
-| Project |                     |
-| 
-| [JAMPS Ravencoin Pool]
-| [JAMPS Ravencoin Stratum]
-| [JAMPS Ravencoin Hashing]
+| Project                     |
+|                             |
+| [JAMPS Ravencoin Pool]      |
+| [JAMPS Ravencoin Stratum]   |
+| [JAMPS Ravencoin Hashing]   |
 
 -------
 ### Requirements
