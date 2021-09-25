@@ -273,9 +273,13 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
     chmod 777 pool-logs-watch.sh pool-reset-stats.sh pool-restart.sh pool-start.sh pool-stop.sh
     sudo bash pool-start.sh
 
-### Donates for developers Ravencoin Pool
-
+### Donates for developers Ravencoin Pool mardock2009
 RVN: RXpumHNPrvoBqHUFYN7HjWaXNqQDwxjH8P
+
+Donation Autor code JAMPS
+btcdonations": "1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt",
+ltcdonations": "LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz",
+rvndonations": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
     
 -------
 
