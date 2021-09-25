@@ -277,9 +277,11 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
 RVN: RXpumHNPrvoBqHUFYN7HjWaXNqQDwxjH8P
 
 Donation Autor code JAMPS
-btcdonations": "1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt",
-ltcdonations": "LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz",
-rvndonations": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
+btcdonations": "1GXEm97T5iXAeYHBj2GuL3TKKRpkNas4Qt"
+
+ltcdonations": "LWBZWLmjqeQFnMqS9NctcdSx3TEYHyzfGz"
+
+rvndonations": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk"
     
 -------
 
