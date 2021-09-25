@@ -20,7 +20,7 @@
     "rvndonations": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
     "logger" : {
         "level" : "debug",
-        "file" : "/home/pool/jamps-ravencoin-pool/logs/ravencoin_debug.log"
+        "file" : "/home/pool/Ravencoin-Pool/logs/ravencoin_debug.log"
     },
     "cliHost": "127.0.0.1",
     "cliPort": 17117,
@@ -54,8 +54,8 @@
         "host": "0.0.0.0",
         "port": 80,
         "sslport": 443,
-        "sslkey": "/home/pool/jamps-ravencoin-pool/certs/privkey.pem",
-        "sslcert": "/home/pool/jamps-ravencoin-pool/certs/fullchain.pem",
+        "sslkey": "/home/pool/Ravencoin-Pool/certs/privkey.pem",
+        "sslcert": "/home/pool/Ravencoin-Pool/certs/fullchain.pem",
         "stratumHost": "rvn.jamps.pro",
         "stats": {
             "updateInterval": 900,
