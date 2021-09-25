@@ -11,9 +11,9 @@
         "Ravencoin",
         "KawPoW"
     ],
-    "homepage": "https://github.com/J-A-M-P-S/jamps-ravencoin-pool",
+    "homepage": "https://github.com/mardock2009/Ravencoin-Pool",
     "bugs": {
-        "url": "https://github.com/J-A-M-P-S/jamps-ravencoin-pool/issues"
+        "url": "https://github.com/J-A-M-P-S/jamps-ravencoin-pool/"
     },
     "license": "GPL-3.0",
     "author": "JAMPS",
@@ -26,7 +26,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/J-A-M-P-S/jamps-ravencoin-pool.git"
+        "url": "https://github.com/mardock2009/Ravencoin-Pool"
     },
     "devDependencies": {
         "require-so-slow": "^2.0.5"
@@ -85,7 +85,7 @@
         "sha3": "^2.1.4",
         "sma": "^0.1.1",
         "sshpk": "^1.15.2",
-        "stratum-pool": "git+https://github.com/mardock2009/Ravencoin-stratum-server.git",
+        "stratum-pool": "git+https://github.com/mardock2009/test2.git",
         "underscore": "^1.12.1",
         "winston": "^3.2.1",
         "winston-daily-rotate-file": "^3.5.1",
@@ -95,3 +95,4 @@
         "node": ">=8.17.0"
     }
 }
+
