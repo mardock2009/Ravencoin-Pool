@@ -267,7 +267,7 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
 
 ### Run Pool
     
-    cd ~/jamps-ravencoin-pool
+    cd ~/Ravencoin-Pool
     sudo bash pool-start.sh
 
 ### Donates for developers Ravencoin Pool
