@@ -77,7 +77,7 @@ Other helpfull commands.
     cd ~
     git config --global http.https://gopkg.in.followRedirects true
     git clone https://github.com/mardock2009/Ravencoin-Pool.git
-    cd jamps-ravencoin-pool/
+    cd Ravencoin-Pool/
     ./install.sh
 
 -------
@@ -85,7 +85,7 @@ Other helpfull commands.
 
 Change "stratumHost": "rvn.jamps.pro", to your IP or DNS in file config.json:
 
-    cd ~/jamps-ravencoin-pool
+    cd ~/Ravencoin-Pool
     nano config.json
 
 ```javascript
@@ -111,7 +111,7 @@ Change "stratumHost": "rvn.jamps.pro", to your IP or DNS in file config.json:
     "rvndonations": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk",
     "logger" : {
         "level" : "debug",
-        "file" : "/home/pool/jamps-ravencoin-pool/logs/ravencoin_debug.log"
+        "file" : "/home/pool/Ravencoin-Pool/logs/ravencoin_debug.log"
     },
     "cliHost": "127.0.0.1",
     "cliPort": 17117,
@@ -145,8 +145,8 @@ Change "stratumHost": "rvn.jamps.pro", to your IP or DNS in file config.json:
         "host": "0.0.0.0",
         "port": 80,
         "sslport": 443,
-        "sslkey": "/home/pool/jamps-ravencoin-pool/certs/privkey.pem",
-        "sslcert": "/home/pool/jamps-ravencoin-pool/certs/fullchain.pem",
+        "sslkey": "/home/pool/Ravencoin-Pool/certs/privkey.pem",
+        "sslcert": "/home/pool/Ravencoin-Pool/certs/fullchain.pem",
         "stratumHost": "rvn.jamps.pro",
         "stats": {
             "updateInterval": 900,
@@ -164,7 +164,7 @@ Change "stratumHost": "rvn.jamps.pro", to your IP or DNS in file config.json:
 
 Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wallet address in file ravencoin.json:
 
-    cd ~/jamps-ravencoin-pool/pools
+    cd ~/Ravencoin-Pool/pools
     nano ravencoin.json
 
 ```javascript
