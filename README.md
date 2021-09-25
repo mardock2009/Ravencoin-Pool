@@ -268,6 +268,7 @@ Change "address": "RNs3ne88DoNEnXFTqUrj6zrYejeQpcj4jk", to your pool created wal
 ### Run Pool
     
     cd ~/Ravencoin-Pool
+    chmod 777 pool-logs-watch.sh pool-reset-stats.sh pool-restart.sh pool-start.sh pool-stop.sh
     sudo bash pool-start.sh
 
 ### Donates for developers Ravencoin Pool
