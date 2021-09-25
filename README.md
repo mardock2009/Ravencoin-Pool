@@ -78,6 +78,7 @@ Other helpfull commands.
     git config --global http.https://gopkg.in.followRedirects true
     git clone https://github.com/mardock2009/Ravencoin-Pool.git
     cd Ravencoin-Pool/
+    chmod 777 install.sh
     ./install.sh
 
 -------
