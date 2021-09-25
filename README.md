@@ -76,7 +76,7 @@ Other helpfull commands.
     sudo apt install git -y
     cd ~
     git config --global http.https://gopkg.in.followRedirects true
-    git clone https://github.com/J-A-M-P-S/jamps-ravencoin-pool.git
+    git clone https://github.com/mardock2009/Ravencoin-Pool.git
     cd jamps-ravencoin-pool/
     ./install.sh
 
