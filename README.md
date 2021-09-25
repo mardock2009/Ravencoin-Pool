@@ -7,7 +7,7 @@ Highly Efficient mining pool for Ravencoin!
 
 -------
 ### Screenshots
-![ScreenShot](https://letsexchange.io/blog/content/images/2021/07/ravencoin_------------------1-min.png)
+![ScreenShot](https://github.com/mardock2009/Ravencoin-Pool/blob/master/pool.jpg?raw=true)
 -------
 ### Node Open Mining Portal consists of 3 main modules:
 | Project                     |
