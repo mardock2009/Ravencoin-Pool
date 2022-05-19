@@ -73,7 +73,6 @@
         "newrelic": "^5.1.0",
         "node-crypto-api": "git+https://github.com/J-A-M-P-S/node-crypto-api.git",
         "node-json-minify": "^1.0.0",
-        "node-multi-hashing": "^1.0.2",
         "node-watch": "^0.5.9",
         "nomics": "git+https://github.com/J-A-M-P-S/nomics-javascript.git",
         "nonce": "^1.0.4",
